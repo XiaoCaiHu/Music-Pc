@@ -24,10 +24,21 @@ node app.js
 
 ## 目录
 
-还没写完(●ˇ∀ˇ●)
+
 
 ## 项目效果图
-先这样吧
 
+### 主页
+<img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E4%B8%BB%E9%A1%B5.png" width="400px"/> <img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E4%B8%BB%E9%A1%B52.png" width="400px"/>
 
+## 歌单分类 
+<img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%AD%8C%E5%8D%95%E5%88%97%E8%A1%A8.png" width="400px"/> 
 
+## 歌单详情
+<img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%AD%8C%E5%8D%95.png" width="400px"/> <img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%AD%8C%E5%8D%95%E8%AF%84%E8%AE%BA.png" width="400px"/> <img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%AD%8C%E5%8D%95%E6%94%B6%E8%97%8F%E8%80%85.png" width="400px"/>
+
+## 播放器页面
+<img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%92%AD%E6%94%BE%E5%99%A8.png" width="400px"/> <img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%92%AD%E6%94%BE%E5%99%A82.png" width="400px"/>
+
+## 当前播放列表/歌词显示/ 
+<img         src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E5%BD%93%E5%89%8D%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8or%E6%AD%8C%E8%AF%8D%E6%98%BE%E7%A4%BA.png" width="400px"/>
