@@ -5,7 +5,7 @@
 
 （项目在master分支中）
 
-所用技术栈：Vue全家桶 + better-scroll + Element-ui + axios。 （强大vue 和 element 能让人起飞O(∩_∩)O）
+所用技术栈：Vue全家桶 + better-scroll + Element-ui + axios。 （强大vue 和 element 能让人开心O(∩_∩)O）
 
 ## 项目简介
 本项目使用接口为开源后端接口
