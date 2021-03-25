@@ -17,3 +17,15 @@ export function _getHigDetail(cat,limit){
         }
     })
 }
+// 获取歌单分类内容
+export function _getArtistList(type,area,limit){
+    return request({
+        url:'/artist/list',
+        params:{
+            type:type,
+            area:area,
+            limit:limit
+        }
+    })
+}
+// 

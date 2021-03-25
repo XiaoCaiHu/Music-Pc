@@ -50,19 +50,10 @@
           </div>
         </div>
      </scroll>
-     <el-alert
-       v-show="showAlert"
-       class="el-alert"
-       title="翻啥翻，再翻下去裤衩都给你翻没了(╯▔皿▔)╯"
-       type="error"
-       effect="dark">
-     </el-alert>
-     <div class="load"
-         v-loading="loading"
-         element-loading-text="拼命加载中"
-
-     >
-     </div>
+     <!-- 触底提示 -->
+     <loadAlert :showAlert='showAlert'></loadAlert>
+     <!-- 加载条 -->
+     <load :loading='loading'></load>
     </div>
 </template>
 <script>
@@ -71,8 +62,12 @@ import {_getMusicComment} from 'network/diyRecom'
 import Lyric from '../lyric/lyric.vue'
 import Scroll from 'base/scroll/scroll'
 import commentOn from 'components/playListDetail/commentOn.vue'
+import Load from 'base/Load.vue'
+import LoadAlert from 'base/LoadAlert.vue'
+import {loadMixin,loadUp} from 'common/js/mixin.js'
 
 export default {
+  mixins: [loadMixin,loadUp],
   props:{
       currentSong: {
          type:Object,
@@ -87,15 +82,7 @@ export default {
   data() {
     return {
       songComments: [],
-      id:this.currentSong.id,
-      page:1,
-      limit:20,
-      pullup: true,
-      beforeScroll: true, //判断是否开始滑动
-      hasMore: true, //判断是否加载完
-      showAlert:false, // alert是否显示
-      timer:{},
-      loading:false
+      id:this.currentSong.id
     };
   },
   created() {
@@ -105,7 +92,9 @@ export default {
   components: {
       Lyric,
       commentOn,
-      Scroll
+      Scroll,
+      Load,
+      LoadAlert
   },
   computed: {
     ...mapGetters(["playing"]),
@@ -149,33 +138,10 @@ export default {
         }     
       })
     },
-    _checkMore(data,page) {
-      const song = data
-      if(this.page == 5){
-        this.hasMore = false
-        return 
-      }
-      if(page > this.allPage) {
-        this.hasMore = false
-        return
-      }
-      if(!song.length) {
-        this.hasMore = false
-        return
-      }
-      if(page == this.allPage) {
-        this.limit = this.yuPage
-        this.hasMore = false
-        return
-      }
-    },
-    closeAlert() {
-      this.showAlert = !this.showAlert
-    }
   }
 };
 </script>
-<style  lang='scss' >
+<style scoped lang='scss' >
    
     .playerBig {
       position: relative;
@@ -303,31 +269,7 @@ export default {
          // background-color: crimson;
        }
      }
-     .el-alert{
-       position: fixed;
-       left: 0;
-       right: 0;
-       margin: auto;
-       top: 50px;
-       width: 50%;
-     }
-     .load{
-       position: fixed;
-       left: 0;
-       right: 0;
-       margin: auto;
-       top: 10%;
-       height: 6%;
-       .el-loading-mask{
-         background-color: rgba(0, 0, 0, 0);
-         .el-loading-spinner{       
-           .circular .path,.el-loading-text{
-             color: $color-bg-red;
-             stroke: $color-bg-red;
-           }
-         }
-       }
-     }
+
    }
 // cd旋转
 .cdAnimation{

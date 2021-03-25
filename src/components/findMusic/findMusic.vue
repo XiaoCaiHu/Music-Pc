@@ -104,14 +104,12 @@ export default {
       .menu-item{
         text-align: center;
         font-size: 14px;
-        padding:  20px 25px 10px 25px;
-        color: #fff;
+        width: 100px;
+        padding:  20px 0 10px 0;
+        color: #939496;
         box-sizing: border-box;
-        &:hover{
-          background: #202226;
-        }
         &.active2{
-          color: #939496 !important;
+          // color: #939496 !important;
           border-bottom: 2px solid #939496;
         }
       }

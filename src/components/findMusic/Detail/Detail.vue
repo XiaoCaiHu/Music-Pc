@@ -11,7 +11,7 @@
         <div class="detail-zone">
             <div class="title">热门标签:</div>
             <div class="zone-item"
-                 @click="selectItem(index)"
+                 @click="selectItem(item.name,index)"
                  :class="{'active1':index==indexItem}"
                  v-for="(item,index) in tags" 
                  :key="index"
@@ -20,12 +20,18 @@
         <recomSong @seleRecomSong = 'seleRecomSong' class="recomSong" :personalized="DetailList"></recomSong>
        </div>
     </scroll>
+    <!-- 触底提示 -->
+    <loadAlert :showAlert='showAlert'></loadAlert>
+    <!-- 加载条 -->
+    <load :loading='loading'></load>
   </div>
 </template>
 <script>
 import {_getHot,_getHigDetail} from 'network/Detail.js'
 import RecomSong from 'base/recomSong.vue'
 import Scroll from 'base/scroll/scroll'
+import Load from 'base/Load.vue'
+import LoadAlert from 'base/LoadAlert.vue'
 import {loadMixin,loadUp} from 'common/js/mixin.js'
 // 
 export default {
@@ -36,7 +42,7 @@ export default {
        tags:[],
        currentIndex: 0,
        DetailList: [],
-
+       detNumList: []
     }
   },
   created() {
@@ -44,7 +50,9 @@ export default {
   },
   components: {
       RecomSong,
-      Scroll
+      Scroll,
+      LoadAlert,
+      Load
   },
   methods: {
 // 加载更多数据
@@ -61,8 +69,10 @@ export default {
       this.getHigDetail()
     },   
 // 选择分类标签
-      selectItem(index) {
+      selectItem(name,index) {
           this.currentIndex = index
+          this.getHigDetail()
+          console.log(name);
       },
 // 获取歌单歌曲
       seleRecomSong(id) {
@@ -78,10 +88,16 @@ export default {
       },
 // 获取当前分类歌单
       getHigDetail() {
+          this.loading = true
           _getHigDetail(this.tags[this.currentIndex].name,this.page*this.limit).then(res => {
               this.DetailList = res.data.playlists
-              this.SETLOADSHOW(false)
-              console.log(res);
+              this.detNumList = res.data
+              // 判断是否还需要继续加载
+              this._checkMore(this.DetailList)
+              //判断是否取消主加载条
+              this.SETLOADSHOW(false) 
+              this.loading = false
+              console.log(this.detNumList);
           })
       }
   },
@@ -90,12 +106,12 @@ export default {
       indexItem() {
           return this.currentIndex
       },
-    //   allPage() {
-    //     return this.DetailList ? parseInt(Math.floor(this.DetailList.total/this.limit)) : 0
-    //   },
-    //   yuPage() {
-    //     return this.DetailList ? parseInt(this.DetailList.total%this.limit) : 0
-    //   }    
+      allPage() {
+        return this.detNumList ? parseInt(Math.floor(this.detNumList.total/this.limit)) : 0
+      },
+      yuPage() {
+        return this.detNumList ? parseInt(this.detNumList.total%this.limit) : 0
+      }    
   }
 }
 </script>
@@ -109,7 +125,7 @@ export default {
     bottom: 50px;
     width: 100%;
     overflow: auto;
-    padding: 0 0 0 7%;
+    padding: 0 0 0 9%;
     color: #fff;
     .suggest{
         width: 100%;

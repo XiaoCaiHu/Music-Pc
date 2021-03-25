@@ -3,8 +3,9 @@
     <el-carousel-item 
             v-for="(item,index) in banner" 
             :key="index" 
+            class="el-carousel-item "
     >
-    <el-image :src="item.imageUrl" fit="contain" style="height:200px; border-radius: 10px"></el-image>
+    <img :src="item.imageUrl" fit="contain" >
     <el-tag size="mini"  
             class="clsH3" 
             :type="item.typeTitle === '独家' ? 'danger' : 'primary'" 
@@ -33,12 +34,16 @@ export default {
 </script>
 <style scoped lang='scss' >
 // 轮播图样式
-  .el-carousel {
+  .el-carousel{
       width: 80%;
-      
   }
-  .el-carousel__item {
+  .el-carousel-item {
+    width: 50%;
     border-radius: 6px;
+    img{
+      width: 100%;
+      border-radius: 10px
+    }
   }
   .clsH3{
       position: absolute;

@@ -13,6 +13,7 @@ export const loadUp = {
         return {
             limit:20,
             page:1,
+            loading:false, //下拉加载条是否开启
             pullup: true,
             beforeScroll: true, //判断是否开始滑动
             hasMore: true, //判断是否加载完
@@ -22,28 +23,30 @@ export const loadUp = {
     },
     methods: {
         // 判断是否能继续加载
-        _checkMore(data,page) {
+        _checkMore(data) {
             const song = data
-            if(this.page == 5){
-              this.hasMore = false
-              return 
-            }
-            if(page > this.allPage) {
-              this.hasMore = false
-              return
-            }
             if(!song.length) {
               this.hasMore = false
               return
             }
-            if(page == this.allPage) {
-              this.limit = this.yuPage
+            if(this.page == 5){
+              this.hasMore = false
+              return 
+            }
+            if(this.page > this.allPage) {
               this.hasMore = false
               return
             }
+            if(this.page == this.allPage) {
+              this.limit = (this.yuPage+this.allPage*this.limit+1)
+              if(this.yuPage == 0) {
+                 this.hasMore = false
+              }
+            }
           },   
-          closeAlert() {
-            this.showAlert = !this.showAlert
-          }  
+        // 触底提示是否打开
+        closeAlert() {
+          this.showAlert = !this.showAlert
+        }
     }
 }

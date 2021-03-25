@@ -42,7 +42,7 @@
       <div class="myMusic"></div>
     </el-aside>
 
-    <div class="load"
+    <div class="loadMain"
          v-loading="loadShow"
          element-loading-text="拼命加载中"
          element-loading-spinner="el-icon-loading"
@@ -219,7 +219,7 @@ export default {
         }        
     }
     // 主体
-    .load{
+    .loadMain{
       position: fixed;
       top: 60px;
       bottom: 60px;
@@ -234,7 +234,7 @@ export default {
          }
        }
       .el-main{
-        box-sizing: border-box;
+          box-sizing: border-box;
           left: 15%;
           right: 0;
           background-color: $color-main;

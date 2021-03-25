@@ -1,7 +1,7 @@
 <template>
   <div class="recomSong">
       <div @click="seleItem(item.id)" class="recom-item" v-for="(item,index) in personalized" :key="index">
-          <div class="recom-desc"><i class="icon-10"></i><span>{{Math.floor(item.playCount/10000)}}万</span></div>
+          <div class="recom-desc" v-if="Desc"><i class="icon-10"></i><span>{{Math.floor(item.playCount/10000)}}万</span></div>
           <img v-lazy="item.picUrl || item.coverImgUrl" alt="">
           <div class="recom-title"><span>{{item.name}}</span></div>
       </div>
@@ -45,6 +45,11 @@ export default {
       this.SETLOADSHOW(true)
       this.$emit('seleRecomSong',id)
     }
+  },
+  computed: {
+      Desc() {
+        return this.personalized.length>0 ? 'true' : 'false'
+      }
   }
 }
 </script>

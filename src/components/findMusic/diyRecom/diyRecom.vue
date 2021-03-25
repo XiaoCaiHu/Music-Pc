@@ -107,12 +107,9 @@ export default {
     bottom: 50px;
     width: 100%;
     overflow: auto;
-    // .load{
-    //      width: 100%;
-    //      height: 100%; 
       .diyRecom-content{
         height: 100%;
-        padding: 10px 0 0 7%;
+        padding: 10px 0 0 9%;
         overflow: hidden;
       
         .banner{
