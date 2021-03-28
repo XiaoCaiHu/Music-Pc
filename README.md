@@ -29,7 +29,7 @@ node app.js
 ## 项目效果图
 
 ### 主页
-<img src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/PC%E4%B8%BB%E9%A1%B5.png" width="400px"/> <img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E4%B8%BB%E9%A1%B52.png" width="400px"/>
+<img src="https://github.com/XiaoCaiHu/PCmusic1/blob/f514043e9e38a1ada1e0769529b9c64620800ffe/PC%E4%B8%BB%E9%A1%B5.png" width="400px"/> <img src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/PC%E4%B8%BB%E9%A1%B5.png" width="400px"/>
 
 ## 歌单分类 
 <img src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E6%AD%8C%E5%8D%95%E5%88%97%E8%A1%A8.png" width="400px"/> 
