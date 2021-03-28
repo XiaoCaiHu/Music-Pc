@@ -29,7 +29,7 @@ node app.js
 ## 项目效果图
 
 ### 主页  
-![image](https://github.com/meetbill/python_learn/raw/master/4_pytable/images/demo.png)
+![PCmusic1](https://github.com/meetbill/python_learn/raw/master/4_pytable/images/demo.png)
 ![image](https://github.com/XiaoCaiHu/PCmusic1/blob/f514043e9e38a1ada1e0769529b9c64620800ffe/PC%E4%B8%BB%E9%A1%B5.png)
 <img src="https://github.com/XiaoCaiHu/PCmusic1/blob/f514043e9e38a1ada1e0769529b9c64620800ffe/PC%E4%B8%BB%E9%A1%B5.png" width="400px"/> <img src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/PC%E4%B8%BB%E9%A1%B5.png" width="400px"/>
 
