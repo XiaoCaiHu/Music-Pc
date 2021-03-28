@@ -42,3 +42,14 @@ node app.js
 
 ## 当前播放列表/歌词显示/ 
 <img         src="https://github.com/2064919801/img/blob/f2e5c22580c649db85edf48b0db399cad3cad004/PC%E5%BD%93%E5%89%8D%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8or%E6%AD%8C%E8%AF%8D%E6%98%BE%E7%A4%BA.png" width="400px"/>
+
+##  歌手  
+<img  src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/PC%E6%AD%8C%E6%89%8B1.png" width="400px"/>
+ 
+<img  src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/PC%E6%AD%8C%E6%89%8BMV.png" width="400px"/>
+ 
+## MV  
+<img  src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/MV.png" width="400px"/>
+
+<img  src="https://github.com/XiaoCaiHu/img/blob/f95be779c7e584a72a1ff414650c860b05c5188f/MV%E5%88%97%E8%A1%A8.png" width="400px"/>
+
