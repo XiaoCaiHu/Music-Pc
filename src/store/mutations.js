@@ -38,13 +38,13 @@ const mutations = {
     [types.SET_SONG](state,res){
         if(res) {
             for(let k in res){
-                state.song = res[k].url
-                console.log(state.song);
+                if(res[k].url) {
+                    state.song = res[k].url
+                }
             }
         }else {
             state.song = null
-        }
-        
+        }  
     },
     [types.SET_LYRIC](state,lyricRes){
         if(lyricRes.nolyric==true || lyricRes.needDesc==true) {

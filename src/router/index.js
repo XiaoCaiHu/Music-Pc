@@ -12,6 +12,7 @@ const playListDetail = ()=>import("components/playListDetail/playListDetail.vue"
 const singDetail = ()=>import("components/findMusic/Singer/singDetail.vue")
 const MvList =() =>import('components/MvList/MvList.vue')
 const allMv =() =>import('components/allMv/allMv.vue')
+const search =() =>import('components/search/search.vue')
 
 Vue.use(VueRouter)
 
@@ -81,6 +82,11 @@ const routes = [
       {
         path:'/allMv',
         component:allMv,
+      },
+      //  搜索
+      {
+        path:'/search/:key',
+        component:search, 
       }
     ]
   }

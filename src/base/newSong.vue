@@ -1,19 +1,21 @@
 <template>
   <div class="newSong">
-    <div class="newSong-item" v-for="(item,index) in newSong" :key="index">
+    <div @click="selectSong(index)" class="newSong-item" v-for="(item,index) in songList" :key="index">
         <span class="item-num">{{index+1}}</span>
-        <img :src="item.picUrl" alt="">
+        <img :src="item.pic" alt="">
         <div class="newSong-desc">
-            <div class="name">{{item.name}}</div>
-            <div class="alg">{{item.alg}}</div>
+            <div class="name">{{item.song}}</div>
+            <div class="alg">{{item.name}}</div>
         </div>
     </div>
   </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
+
 export default {
   props:{
-      newSong:{
+      songList:{
           type:Array,
           default: ()=> []
       }
@@ -23,6 +25,19 @@ export default {
     return {
        
     }
+  },
+  methods: {
+  ...mapActions({
+    selectPlay:'selectPlay'
+  }),
+// 选择播放歌曲
+    selectSong(index){
+      // console.log(this.newSong[index]);
+      this.selectPlay({
+        list:this.songList,
+        index:index
+      })
+    },
   }
 }
 </script>

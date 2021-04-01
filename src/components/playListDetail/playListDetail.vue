@@ -40,6 +40,7 @@
             </div>
             <!-- 歌单详情/评论 -->
             <detailList @selecTab='selecTab' 
+                
                         class="detailList" 
                         v-show="songList" 
                         :tabItem='tabItem' 
@@ -56,7 +57,7 @@ import {_getPlaylistDetail,
         _getSongsDetail,
         songDetail,
         _getSongsComment,
-        _getSongSubscribers} from 'network/diyRecom.js'
+        _getSongSubscribers,} from 'network/diyRecom.js'
 import detailList from './detailList.vue'
 import {mapMutations} from 'vuex'
 import Scroll from 'base/scroll/scroll'

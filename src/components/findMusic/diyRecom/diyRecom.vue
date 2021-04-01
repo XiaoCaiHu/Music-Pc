@@ -7,9 +7,9 @@
           <recomSong  @seleRecomSong = 'seleRecomSong' class="recomSong" :personalized="personalized"></recomSong>
           <div class="title">独家放送</div>
           <soleBroadcast class="soleBroadcast" :privatecontent="privatecontent"></soleBroadcast>
-          <div class="title" style="font-size:.2rem;">最新音乐</div>
-          <el-divider ></el-divider>
-          <newSong class="newSong" :newSong="newsong"></newSong>
+          <div class="title2" >最新音乐</div>
+          <el-divider></el-divider>
+          <newSong class="newSong" :songList="songList"></newSong>
           <div class="kong"></div>
        </div>
     </scroll>
@@ -26,6 +26,8 @@ import {_getBanner,
         _getPersonalized,
         _getPrivatecontent,
         _getPerNewsong,
+        _getSongsDetail,
+        songDetail
         } from 'network/diyRecom.js'
 
 export default {
@@ -45,7 +47,8 @@ export default {
        privatecontent:[], //独家放送
        newsong:[], //新歌推荐
        playlistDetail:[], //歌单详情
-       detailId:0 //歌单id
+       detailId:0, //歌单id
+       songList:[]
     }
   },
   created() {
@@ -81,9 +84,17 @@ export default {
     },
 // 获取推荐新音乐
     getPerNewsong() {
+        this.songList = []
         _getPerNewsong().then(res => {
          this.newsong = res.data.result
-        //  加载消失
+         for (let i in this.newsong) {
+             _getSongsDetail(this.newsong[i].id).then(res => {
+             let song = new songDetail(res.data.songs);
+             this.songList.push(song);
+           })
+         }
+         console.log(this.songList);
+         //  加载消失
          this.SETLOADSHOW(false)
         })
     }
@@ -114,17 +125,23 @@ export default {
           width: 70%;
         }
         .soleBroadcast{
-          height: 1.1rem;
-          margin-bottom: .2rem;
+          height: 1.5rem;
+          padding-bottom: .4rem;
+          // margin-bottom: .2rem;
         }
         .el-divider--horizontal{
           width: 70%;
           margin: .05rem 0 0 0;
         }
         .title{
-          font-size:.14rem;
+          font-size:.2rem;
           color:$color-text-2;
           margin:0 0 .1rem 0;
+        }
+        .title2{
+          font-size:.2rem;
+          color:$color-text-2;
+          margin-top: .2rem;
         }
         .kong{
           height: .3rem;

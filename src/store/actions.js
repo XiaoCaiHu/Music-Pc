@@ -5,7 +5,7 @@ import {getSongLyric,getSongUrl} from 'network/diyRecom.js'
 export const selectPlay = async function({commit},{list,index}) {
   // 获取歌曲,写在这里防止踩坑!>_<!
   const {data:res} = await getSongUrl(list[index].id)
-  // console.log(res);
+  console.log(res);
   const {data:lyricRes} = await getSongLyric(list[index].id)
   console.log(lyricRes);
   // 判断是否能获取歌词

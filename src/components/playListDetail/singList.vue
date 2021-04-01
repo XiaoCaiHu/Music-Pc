@@ -15,8 +15,9 @@
         <tr ref="itemSong" @dblclick="selectSong(index)" v-for="(item,index) in musicList" :key="index" :class="{'tabCoubel':index%2===0}">
           <td style="width: .5rem;text-align: center;"><i style="font-size:.16rem;" v-if="index==CurrentIndex1" class="icon-20"></i><span :class="{'rank':(index < 3 && showRank)}" v-if="index!==CurrentIndex1">0{{index+1}}</span> </td>
           <td v-show="showPeration" style="width: .8rem;"><i style="font-size:.16rem;" class="icon-uniE91B"></i><i style="margin-left:.05rem;" class="icon-9"></i></td>
+          <td v-if="showPic"><img style="width:0.5rem" v-lazy="item.pic" alt=""></td>
           <td :class="{'td-width':!showPeration}">{{item.name}}</td>
-          <td v-if="showSongName" style="width: 1.4rem;">{{item.song || item.al.name}}</td>
+          <td v-if="showSongName" style="width: 1.4rem;">{{item.song || item.al.name }}</td>
           <td v-show="showAlbum" style="width: 1.8rem;">{{item.album}}</td>
           <td style="width: .8rem;">{{handleDate(item.time)}}</td>
         </tr>
@@ -56,6 +57,11 @@ export default {
     showPeration:{
       type:Boolean,
       default:true
+    },
+    // 图片显示
+    showPic: {
+      type:Boolean,
+      default:false
     },
     // 排行显示
     showRank:{

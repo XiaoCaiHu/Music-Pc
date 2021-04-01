@@ -3,12 +3,16 @@
       <tab class="tab" @selectIndex="selectIndex" :tabName='tabItem'></tab>
       <singerAlbum v-show="tabIndex==0" @showAll='showAll' :hotSong='hotSong' :hotAlbums='hotAlbums' class="singerAlbum"></singerAlbum>
       <mvList @seleRecomSong='seleMV' v-show="tabIndex==1" :showMv='true' :personalized='mvs'></mvList>
+      <singerIntr v-show="tabIndex==2" :introduction='introduction'></singerIntr>
+      <singerSimi v-show="tabIndex==3"></singerSimi>
   </div>
 </template>
 <script>
 import tab from 'base/tab.vue'
 import singerAlbum from 'components/findMusic/Singer/singerAlbum.vue'
 import mvList from "base/recomSong.vue"
+import singerIntr from './singerIntr.vue'
+import singerSimi from './singerSimi.vue'
 import {seleMvItem} from 'common/js/mixin'
 
 export default {
@@ -45,13 +49,16 @@ export default {
   components: {
       tab,
       singerAlbum,
-      mvList
+      mvList,
+      singerIntr,
+      singerSimi
   },
   methods: {
 // tab标签变换
     selectIndex(index) {
       this.tabIndex = index
       this.$emit('selecTab',index)
+      console.log(this.introduction);
     },
 // 更多歌曲显示
     showAll() {

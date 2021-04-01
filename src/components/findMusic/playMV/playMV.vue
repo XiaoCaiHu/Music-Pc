@@ -4,7 +4,6 @@
         <div>
           <div class="title-wrapper">
             <div class="title">最新MV</div>
-            <div @click="openAllMv" class="more">更多</div>
           </div>
           <recomSong v-if="mvs.length>0" class="mvList" @seleRecomSong='seleMV' :showMv='true' :personalized='mvs'></recomSong>
           <div class="title-wrapper">

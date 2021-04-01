@@ -29,6 +29,18 @@ export function _getMvComment(id,limit){
         }
     })
 }
+//   添加评论 
+export function _setComment(t,type,id,content){
+    return request({
+        url:'/comment',
+        params:{ 
+            t:t,
+            type:type,
+            id:id,
+            content:content
+        }
+    })
+}
 // 相似MV 
 export function _getMvSimi(mvid){
     return request({

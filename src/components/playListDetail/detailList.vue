@@ -2,7 +2,7 @@
   <div class="detailList">
           <tab class="tab" @selectIndex="selectIndex" :tabName='tabItem'></tab>
           <singList ref="singList" :detailID='singerID' :musicList='songList' v-show="tabIndex===0"></singList>
-          <commentOn :songComments='songComments' v-show="tabIndex===1"></commentOn>
+          <commentOn  :songComments='songComments' v-show="tabIndex===1"></commentOn>
           <collector :Subscribers='SongSubscribers' v-show="tabIndex===2"></collector>
   </div>
 </template>
@@ -58,6 +58,12 @@ export default {
     },
 //  打开singList组件的事件
     openlist() {
+    },
+//  
+    setComment(text) {
+      console.log("到这里");
+      console.log(text);
+      // this.$emit('setComment',text)
     }
   },
   computed: {

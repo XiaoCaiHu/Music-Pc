@@ -9,7 +9,7 @@
         v-model="textarea">
       </el-input>
       <!-- 添加评论按钮 -->
-      <div class="btn"><span class="btn-item">评论</span></div>
+      <div @click="setComment1" class="btn"><span class="btn-item">评论</span></div>
     </div>
     <div style="margin:.15rem 0 .15rem 0;">精彩评论</div>
     <div class="commen-item" v-for="(item,index) in songComments" :key="index">
@@ -28,8 +28,8 @@
   </div>
 </template>
 <script>
-
 import {formatDate} from "assets/common/tool"
+
 export default {
   props: {
     songComments:Array,
@@ -44,6 +44,17 @@ export default {
   methods: {
     timeM(item) {
        return formatDate(new Date(item), "yy年MM月dd日 hh:mm:ss")
+    },
+    setComment1() {
+      if(window.sessionStorage.getItem("token") == null) {
+        this.$message.error("请登录后再评论");
+        return
+      }
+      if(this.textarea == '') {
+        this.$message.error("别害羞说说你的感受!>_<!");
+        return
+      }
+      this.$emit("setComment",this.textarea);
     }
   },
   computed: {

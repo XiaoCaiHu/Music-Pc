@@ -1,6 +1,6 @@
 <template>
   <div class="soleBroadcast">
-    <div class="sole-item" v-for="(item,index) in privatecontent" :key="index">
+    <div @click="seleMV(item.id)" class="sole-item" v-for="(item,index) in privatecontent" :key="index">
       <div class="sole-desc"><i class="icon-6"></i></div>
       <img v-lazy="item.picUrl" alt="">
       <div class="sole-title"><span>{{item.name}}</span></div>
@@ -8,7 +8,10 @@
   </div>
 </template>
 <script>
+import {seleMvItem} from 'common/js/mixin.js'
+
 export default {
+  mixins:[seleMvItem],
   props:{
     privatecontent:{
       type:Array,

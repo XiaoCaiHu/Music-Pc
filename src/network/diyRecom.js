@@ -63,6 +63,18 @@ export function _getMusicComment(id,limit){
         }
     })
 }
+//   添加评论 
+export function _setComment(t,type,id,content){
+    return request({
+        url:'/comment',
+        params:{ 
+            t:t,
+            type:type,
+            id:id,
+            content:content
+        }
+    })
+}
 // 获取歌单收藏者
 export function _getSongSubscribers(id,limit){
     return request({
@@ -92,6 +104,32 @@ export function getSongLyric(id){
     })
 }
 
+// 获取最新音乐 
+export function _getSongTop(type){
+    return  request({
+        url:'/top/song',
+        params:{
+            type:type
+        }
+    })
+}
+
+//  相似歌手 
+export function _getSimiArtist(id){
+    return  request({
+        url:'/simi/artist',
+        params:{
+            id:id
+        }
+    })
+}
+
+// 处理最新音乐 item.artists[0].name
+export class songTop{
+    constructor(songs){
+        this.song = songs
+    }
+}
 
 // 处理歌曲数据
 export class songDetail{

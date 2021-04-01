@@ -46,7 +46,7 @@
           </div>
           <!-- 评论 -->
           <div class="comment">
-            <commentOn :songComments='songComments.comments'></commentOn>
+            <commentOn @setComment='setComment' :songComments='songComments.comments'></commentOn>
           </div>
         </div>
      </scroll>
@@ -58,7 +58,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import {_getMusicComment} from 'network/diyRecom'
+import {_getMusicComment,_setComment} from 'network/diyRecom'
 import Lyric from '../lyric/lyric.vue'
 import Scroll from 'base/scroll/scroll'
 import commentOn from 'components/playListDetail/commentOn.vue'
@@ -138,6 +138,16 @@ export default {
         }     
       })
     },
+//  添加评论
+    setComment(text) {
+      console.log(text);
+      _setComment(1,0,this.id,text).then(res => {
+        
+        console.log(res);
+        this.getMusicComment()
+        this.$message.success("发表成功");
+      })
+    }
   }
 };
 </script>
