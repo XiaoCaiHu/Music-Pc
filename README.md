@@ -14,13 +14,6 @@
 API安装步骤：
 接口仓库地址：https://github.com/daoshengfu/Vue-NeteaseCloud-WebMusicApp
 
-进入下载好的文件夹
-
-npm install
-
-node app.js
-
-出现：server running @ http://localhost:xxxx 时运行成功
 
 ## 目录
 
